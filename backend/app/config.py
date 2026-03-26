@@ -1,3 +1,4 @@
+from pydantic import field_validator
 from pydantic_settings import BaseSettings
 
 
@@ -10,6 +11,15 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173"
 
     model_config = {"env_file": ".env"}
+
+    @field_validator("database_url")
+    @classmethod
+    def force_asyncpg(cls, v: str) -> str:
+        if v.startswith("postgresql://"):
+            return v.replace("postgresql://", "postgresql+asyncpg://", 1)
+        if v.startswith("postgres://"):
+            return v.replace("postgres://", "postgresql+asyncpg://", 1)
+        return v
 
 
 settings = Settings()
