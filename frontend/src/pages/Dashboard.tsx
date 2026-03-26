@@ -101,19 +101,19 @@ export default function Dashboard() {
             <span className="font-medium text-[#484556] dark:text-[#b0aacc] uppercase tracking-widest text-xs">
               Total Links
             </span>
-            <span className="text-4xl font-headline font-bold text-[#191c1d] dark:text-[#e6e0ff]">
-              {isLoading ? "—" : total.toLocaleString()}
-            </span>
+            {isLoading
+              ? <div className="h-10 w-16 bg-[#e7e8e9] dark:bg-[#242440] rounded animate-pulse" />
+              : <span className="text-4xl font-headline font-bold text-[#191c1d] dark:text-[#e6e0ff]">{total.toLocaleString()}</span>
+            }
           </div>
           <div className="bg-white dark:bg-[#1a1a2e] p-6 rounded-xl border border-[#c9c3d9]/15 dark:border-[#3a3550]/40 flex flex-col justify-between h-32">
             <span className="font-medium text-[#484556] dark:text-[#b0aacc] uppercase tracking-widest text-xs">
               Total Clicks
             </span>
-            <span className="text-4xl font-headline font-bold text-[#191c1d] dark:text-[#e6e0ff]">
-              {isLoading
-                ? "—"
-                : urls.reduce((s, u) => s + u.click_count, 0).toLocaleString()}
-            </span>
+            {isLoading
+              ? <div className="h-10 w-16 bg-[#e7e8e9] dark:bg-[#242440] rounded animate-pulse" />
+              : <span className="text-4xl font-headline font-bold text-[#191c1d] dark:text-[#e6e0ff]">{urls.reduce((s, u) => s + u.click_count, 0).toLocaleString()}</span>
+            }
           </div>
         </div>
 
@@ -141,16 +141,16 @@ export default function Dashboard() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#c9c3d9]/10 dark:divide-[#3a3550]/30">
-                {isLoading && (
-                  <tr>
-                    <td
-                      colSpan={6}
-                      className="px-6 py-16 text-center text-sm text-[#797588] dark:text-[#7a7494]"
-                    >
-                      Cargando...
-                    </td>
+                {isLoading && Array.from({ length: 5 }).map((_, i) => (
+                  <tr key={i} className="animate-pulse">
+                    <td className="px-6 py-6"><div className="h-4 bg-[#e7e8e9] dark:bg-[#242440] rounded w-32" /></td>
+                    <td className="px-6 py-6"><div className="h-4 bg-[#e7e8e9] dark:bg-[#242440] rounded w-48" /></td>
+                    <td className="px-6 py-6"><div className="h-6 bg-[#e7e8e9] dark:bg-[#242440] rounded-full w-12" /></td>
+                    <td className="px-6 py-6"><div className="h-4 bg-[#e7e8e9] dark:bg-[#242440] rounded w-20" /></td>
+                    <td className="px-6 py-6"><div className="h-4 bg-[#e7e8e9] dark:bg-[#242440] rounded w-16" /></td>
+                    <td className="px-6 py-6"><div className="h-4 bg-[#e7e8e9] dark:bg-[#242440] rounded w-24" /></td>
                   </tr>
-                )}
+                ))}
                 {isError && (
                   <tr>
                     <td
@@ -291,9 +291,22 @@ export default function Dashboard() {
         {/* Cards — mobile (< md) */}
         <div className="md:hidden">
           {isLoading && (
-            <p className="py-16 text-center text-sm text-[#797588] dark:text-[#7a7494]">
-              Cargando...
-            </p>
+            <div className="space-y-3">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="bg-white dark:bg-[#1a1a2e] border border-[#c9c3d9]/15 dark:border-[#3a3550]/40 rounded-xl p-4 animate-pulse">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="h-4 bg-[#e7e8e9] dark:bg-[#242440] rounded w-32" />
+                    <div className="h-5 bg-[#e7e8e9] dark:bg-[#242440] rounded-full w-12" />
+                  </div>
+                  <div className="h-3 bg-[#e7e8e9] dark:bg-[#242440] rounded w-56 mb-3" />
+                  <div className="h-3 bg-[#e7e8e9] dark:bg-[#242440] rounded w-20 mb-4" />
+                  <div className="flex items-center justify-between border-t border-[#c9c3d9]/10 dark:border-[#3a3550]/30 pt-3">
+                    <div className="h-4 bg-[#e7e8e9] dark:bg-[#242440] rounded w-16" />
+                    <div className="h-4 bg-[#e7e8e9] dark:bg-[#242440] rounded w-8" />
+                  </div>
+                </div>
+              ))}
+            </div>
           )}
           {isError && (
             <p className="py-16 text-center text-sm text-[#ba1a1a]">

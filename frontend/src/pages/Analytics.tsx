@@ -103,7 +103,43 @@ export default function Analytics() {
     return (
       <div className="bg-[#f8f9fa] dark:bg-[#0f0f1e] min-h-screen">
         <Navbar />
-        <div className="flex items-center justify-center h-[60vh] text-[#797588] dark:text-[#7a7494] text-sm">Cargando...</div>
+        <main className="max-w-7xl mx-auto px-6 py-12">
+          <div className="mb-12 animate-pulse">
+            <div className="h-3 w-24 bg-[#e7e8e9] dark:bg-[#242440] rounded mb-4" />
+            <div className="h-10 w-72 bg-[#e7e8e9] dark:bg-[#242440] rounded mb-3" />
+            <div className="h-4 w-56 bg-[#e7e8e9] dark:bg-[#242440] rounded" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="bg-white dark:bg-[#1a1a2e] p-8 rounded-xl min-h-[160px] animate-pulse flex flex-col justify-between">
+                <div className="h-3 w-28 bg-[#e7e8e9] dark:bg-[#242440] rounded" />
+                <div className="h-12 w-20 bg-[#e7e8e9] dark:bg-[#242440] rounded" />
+              </div>
+            ))}
+          </div>
+          <div className="bg-white dark:bg-[#1a1a2e] p-8 rounded-xl mb-12 animate-pulse">
+            <div className="h-6 w-36 bg-[#e7e8e9] dark:bg-[#242440] rounded mb-10" />
+            <div className="h-80 bg-[#e7e8e9] dark:bg-[#242440] rounded-lg" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {Array.from({ length: 2 }).map((_, i) => (
+              <div key={i} className="bg-white dark:bg-[#1a1a2e] p-8 rounded-xl animate-pulse">
+                <div className="h-5 w-32 bg-[#e7e8e9] dark:bg-[#242440] rounded mb-8" />
+                <div className="space-y-5">
+                  {Array.from({ length: 4 }).map((_, j) => (
+                    <div key={j} className="flex items-center gap-4">
+                      <div className="w-8 h-8 rounded-full bg-[#e7e8e9] dark:bg-[#242440] flex-shrink-0" />
+                      <div className="flex-1 space-y-2">
+                        <div className="h-3 bg-[#e7e8e9] dark:bg-[#242440] rounded w-3/4" />
+                        <div className="h-2 bg-[#e7e8e9] dark:bg-[#242440] rounded-full" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
       </div>
     )
   }
