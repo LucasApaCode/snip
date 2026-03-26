@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #5323e6;
+  --color-primary-container: #6c47ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #f1ebff;
+  --color-primary-fixed: #e6deff;
+  --color-primary-fixed-dim: #c9beff;
+
+  --color-secondary: #5f52a7;
+  --color-secondary-container: #b0a2fd;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #423487;
+  --color-secondary-fixed: #e6deff;
+
+  --color-tertiary: #8d3b00;
+  --color-tertiary-container: #b34d00;
+  --color-on-tertiary: #ffffff;
+
+  --color-background: #f8f9fa;
+  --color-surface: #f8f9fa;
+  --color-surface-dim: #d9dadb;
+  --color-surface-bright: #f8f9fa;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f4f5;
+  --color-surface-container: #edeeef;
+  --color-surface-container-high: #e7e8e9;
+  --color-surface-container-highest: #e1e3e4;
+  --color-surface-tint: #5e35f1;
+
+  --color-on-surface: #191c1d;
+  --color-on-surface-variant: #484556;
+  --color-outline: #797588;
+  --color-outline-variant: #c9c3d9;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+
+  --color-inverse-surface: #2e3132;
+  --color-inverse-on-surface: #f0f1f2;
+  --color-inverse-primary: #c9beff;
+
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --radius-sm: 0.125rem;
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8f9fa;
+  color: #191c1d;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Manrope", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6c47ff, #5323e6);
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition:
+    opacity 0.15s ease,
+    transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark .glass {
+  background: rgba(26, 26, 46, 0.8);
+}

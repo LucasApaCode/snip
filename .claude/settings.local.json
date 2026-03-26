@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__stitch__list_projects",
+      "mcp__stitch__list_screens",
+      "Bash(curl:*)",
+      "WebFetch(domain:contribution.usercontent.google.com)",
+      "Bash(cd:*)",
+      "mcp__stitch__get_screen",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "WebFetch(domain:lh3.googleusercontent.com)",
+      "Bash(docker exec:*)"
+    ]
+  }
+}
