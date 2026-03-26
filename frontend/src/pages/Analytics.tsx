@@ -272,7 +272,7 @@ export default function Analytics() {
               Países
             </h3>
             <div className="space-y-5">
-              {data.top_countries.map((item, i) => {
+              {data.top_countries.map((item) => {
                 const total = data.top_countries.reduce((s, c) => s + c.count, 0)
                 const pct = Math.round((item.count / total) * 100)
                 return (
